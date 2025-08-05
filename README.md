@@ -1,6 +1,6 @@
 # Brave Release Tracker
 
-This repository provides always up-to-date download links for the latest official Brave browser releases for Windows, macOS, and Linux.
+This repository provides always up-to-date download links for the latest **stable** official Brave browser releases for Windows, macOS, and Linux.
 
 ## Overview
 
