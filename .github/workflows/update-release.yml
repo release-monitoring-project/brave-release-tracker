@@ -38,7 +38,10 @@ jobs:
       - name: Check if new release is needed
         id: check_release
         run: |
-          if [ "${{ steps.get_tag.outputs.tag }}" = "${{ steps.get_latest_release.outputs.latest_tag }}" ]; then
+          if [ -z "${{ steps.get_tag.outputs.tag }}" ] || [ "${{ steps.get_tag.outputs.tag }}" = "null" ]; then
+            echo "Tag is null or empty. No release will be created."
+            echo "release_needed=false" >> $GITHUB_OUTPUT
+          elif [ "${{ steps.get_tag.outputs.tag }}" = "${{ steps.get_latest_release.outputs.latest_tag }}" ]; then
             echo "No new release needed."
             echo "release_needed=false" >> $GITHUB_OUTPUT
           else
